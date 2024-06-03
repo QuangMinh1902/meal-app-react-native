@@ -10,6 +10,7 @@ export default function CategoriesScreen() {
       renderItem={({ item }) => (
         <CategoryGridTile title={item.title} color={item.color} />
       )}
+      numColumns={2}
     />
   );
 }
