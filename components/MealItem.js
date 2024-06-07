@@ -1,4 +1,11 @@
-import { View, Text, Pressable, Image, StyleSheet,Platform } from "react-native";
+import {
+  View,
+  Text,
+  Pressable,
+  Image,
+  StyleSheet,
+  Platform,
+} from "react-native";
 
 export default function MealItem({
   title,
@@ -9,15 +16,19 @@ export default function MealItem({
 }) {
   return (
     <View style={styles.mealItem}>
-      <Pressable>
-        <View>
-          <Image source={{ uri: imageUrl }} style={styles.image} />
-          <Text style={styles.title}>{title}</Text>
-        </View>
-        <View style={styles.details}>
-          <Text style={styles.detailItem}>{duration}</Text>
-          <Text style={styles.detailItem}>{complexity.toUpperCase()}</Text>
-          <Text style={styles.detailItem}>{affordability.toUpperCase()}</Text>
+      <Pressable
+        style={({ pressed }) => (pressed ? styles.buttonPressed : null)}
+      >
+        <View style={styles.innerContainer}>
+          <View>
+            <Image source={{ uri: imageUrl }} style={styles.image} />
+            <Text style={styles.title}>{title}</Text>
+          </View>
+          <View style={styles.details}>
+            <Text style={styles.detailItem}>{duration}</Text>
+            <Text style={styles.detailItem}>{complexity.toUpperCase()}</Text>
+            <Text style={styles.detailItem}>{affordability.toUpperCase()}</Text>
+          </View>
         </View>
       </Pressable>
     </View>
@@ -30,10 +41,17 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     overflow: Platform.OS === "android" ? "hidden" : "visible",
     backgroundColor: "white",
-    shadowColor: "yellow",
+    shadowColor: "black",
     shadowOpacity: 0.25,
     shadowOffset: { width: 2, height: 2 },
     shadowRadius: 8,
+  },
+  buttonPressed: {
+    opacity: 0.5,
+  },
+  innerContainer: {
+    borderRadius: 8,
+    overflow: "hidden",
   },
   image: {
     width: "100%",
