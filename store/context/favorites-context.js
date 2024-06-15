@@ -1,5 +1,4 @@
-import { createContext } from "react";
-import { useState } from "react";
+import { createContext, useState } from "react";
 
 export const FavoritesContext = createContext({
   ids: [],
@@ -27,6 +26,8 @@ export default function FavoritesContextProvider({ children }) {
   };
 
   return (
-    <FavoritesContext.Provider value={value}>{children}</FavoritesContext.Provider>
+    <FavoritesContext.Provider value={value}>
+      {children}
+    </FavoritesContext.Provider>
   );
 }

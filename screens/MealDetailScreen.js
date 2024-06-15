@@ -4,17 +4,16 @@ import {
   Image,
   StyleSheet,
   ScrollView,
-  Button,
 } from "react-native";
 import { MEALS } from "../data/dummy-data";
-import { MealDetails } from "../components/MealDetails";
+import  MealDetails  from "../components/MealDetails";
 import Subtitle from "../components/MealDetail/Subtitle";
 import List from "../components/MealDetail/List";
 import { useContext, useLayoutEffect } from "react";
 import IconButton from "../components/IconButton";
 import { FavoritesContext } from "../store/context/favorites-context";
 
-export function MealDetailScreen({ route, navigation }) {
+export default function MealDetailScreen({ route, navigation }) {
   const favoriteMealsCtx = useContext(FavoritesContext);
 
   const { mealId } = route.params;
@@ -44,7 +43,7 @@ export function MealDetailScreen({ route, navigation }) {
           );
         },
       },
-      [navigation, changeFavoriteStatusHandler]
+      [navigation, mealIsFavorite]
     );
   });
 

@@ -1,10 +1,9 @@
 import { StatusBar } from "expo-status-bar";
-import { Button, StyleSheet, Text, View } from "react-native";
 import CategoriesScreen from "./screens/CategoriesScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MealsOverViewScreen from "./screens/MealsOverViewScreen";
-import { MealDetailScreen } from "./screens/MealDetailScreen";
+import MealDetailScreen from "./screens/MealDetailScreen";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import FavoritesScreen from "./screens/FavoritesScreen";
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -24,7 +23,7 @@ function DrawerNavigator() {
         sceneContainerStyle: {
           backgroundColor: "#3f2f25",
         },
-        drawerContentStyle: { backgroundColor: "#351401" },
+        drawerContentStyle: { backgroundColor: "#9e5a5a" },
         drawerInactiveTintColor: "white",
         drawerActiveTintColor: "#e51dce",
         drawerActiveBackgroundColor: "#26e2b6",
@@ -74,7 +73,7 @@ export default function App() {
             <Stack.Screen
               name="Drawer"
               options={{
-                headerShown: false, // remove nesting header
+                headerShown: false, //remove nesting header
               }}
               component={DrawerNavigator}
             />

@@ -8,7 +8,8 @@ import {
   StyleSheet,
   Platform,
 } from "react-native";
-import { MealDetails } from "./MealDetails";
+
+import MealDetails from '../MealDetails'
 
 export default function MealItem({
   id,
